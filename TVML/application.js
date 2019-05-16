@@ -1682,7 +1682,7 @@ function biliApiRequest(aid, cid, quality, bangumi = null, bangumi_movie = null,
 		var resultData = null;
 		ajax.get(genApiUrl,function (html) {
 			resultData = JSON.parse(html);
-			rd(resultData);
+			rd(resultData.data);
 		});
 	}
 	else
