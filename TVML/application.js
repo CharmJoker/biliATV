@@ -1651,7 +1651,7 @@ function openVideoWindow(aid, detail, imageURL, page, title, desc, isBangumi = n
 		myPlayer.playlist = videoList;
 		myPlayer.addEventListener('timeBoundaryDidCross', (listener, extraInfo) => {
             console.log("bound: " + listener.boundary);
-        }, time_array);
+        }, [0,1]);
         myPlayer.addEventListener('timeDidChange', function(listener,extraInfo) {
             console.log("time: " + listener.time);
         },{interval: 1});
@@ -1660,7 +1660,7 @@ function openVideoWindow(aid, detail, imageURL, page, title, desc, isBangumi = n
         },{});
         myPlayer.addDanMu(msg="This is a test", color=0xFF0000, fontSize=25, style=0);
         //style 0:normal 1:top 2:bottom
-        myPlayer.play()
+        myPlayer.play();
 }
 
 var SEC1 = '94aba54af9065f71de72f5508f1cd42e';
