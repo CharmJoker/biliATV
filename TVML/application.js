@@ -1664,9 +1664,11 @@ function openVideoWindow(aid, detail, imageURL, page, title, desc, isBangumi = n
 }
 
 var SEC1 = '94aba54af9065f71de72f5508f1cd42e';
-var appkey = '84956560bc028eb7';
+var SEC_NORMAL = '1c15888dc316e05a15fdd0a02ed6584f'
+var SEC_BANGUMI = '9b288147e5474dd2aa67085f716c560d'
+var appkey = '27eb53fc9058f8c3';
 var api_url = 'http://interface.bilibili.com/v2/playurl?';
-var bangumi_api_url = 'http://bangumi.bilibili.com/player/web_api/playurl?';
+var bangumi_api_url = 'https://api.bilibili.com/pgc/player/web/playurl?';
 
 function biliApiRequest(cid, quality, bangumi = null, bangumi_movie = null, rd)
 {
@@ -1674,7 +1676,7 @@ function biliApiRequest(cid, quality, bangumi = null, bangumi_movie = null, rd)
 	if(bangumi)
 	{
 		var params_str = 'appkey=' + appkey + '&cid=' + cid + '&module=bangumi&otype=json&qn=' + quality + '&quality=' + quality + '&season_type=1&type=';
-		var chksum = genMD5(params_str+SEC1);
+		var chksum = genMD5(params_str+SEC_BANGUMI);
 		var genApiUrl = bangumi_api_url + params_str + '&sign=' + chksum;
 		
 		var resultData = null;
@@ -1686,7 +1688,7 @@ function biliApiRequest(cid, quality, bangumi = null, bangumi_movie = null, rd)
 	else
 	{
 		var params_str = 'appkey=' + appkey + '&cid=' + cid + '&otype=json&qn=' + quality + '&quality=' + quality + '&type=';
-		var chksum = genMD5(params_str+SEC1);
+		var chksum = genMD5(params_str+SEC_NORMAL);
 		var genApiUrl = api_url + params_str + '&sign=' + chksum;
 		
 		var resultData = null;
