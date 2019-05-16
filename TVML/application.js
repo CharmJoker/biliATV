@@ -1691,6 +1691,8 @@ function biliApiRequest(aid, cid, quality, bangumi = null, bangumi_movie = null,
 		var chksum = genMD5(params_str+SEC_NORMAL);
 		var genApiUrl = api_url + params_str + '&sign=' + chksum;
 		Alert(genApiUrl);
+		console.warn(genApiUrl);
+		console.log(genApiUrl);
 		var resultData = null;
 		ajax.get(genApiUrl,function (html) {
 			resultData = JSON.parse(html);
