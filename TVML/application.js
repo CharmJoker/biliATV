@@ -1593,7 +1593,7 @@ evaluateScripts([tvBaseURL+'/tvOS2.js'], function (success) {
 
 function playVideo(infoData, page, quality=80)
 {
-	biliApiRequest(infoData.part[page].cid, quality, false, false, function (detail){
+	biliApiRequest(infoData.aid, infoData.part[page].cid, quality, false, false, function (detail){
 		openVideoWindow(infoData.aid, detail, infoData.wb_img, page, infoData.wb_desc, infoData.wb_desc);
 	});	
 }
@@ -1622,7 +1622,7 @@ function playBangumi(sid, videoInfo, quality=80)
 			return;
 		}
 		
-		biliApiRequest(epcid, quality, true, false, function (detail){
+		biliApiRequest(videoInfo.av_id, epcid, quality, true, false, function (detail){
 			openVideoWindow(videoInfo.av_id, detail, videoInfo.cover, videoInfo.index, videoInfo.index_title, `第 ${videoInfo.index} 话`, true);
 		});	
 	});	
@@ -1670,12 +1670,12 @@ var appkey = '27eb53fc9058f8c3';
 var api_url = 'https://api.bilibili.com/x/player/playurl?';
 var bangumi_api_url = 'https://api.bilibili.com/pgc/player/web/playurl?';
 
-function biliApiRequest(cid, quality, bangumi = null, bangumi_movie = null, rd)
+function biliApiRequest(aid, cid, quality, bangumi = null, bangumi_movie = null, rd)
 {
 	var ts = (new Date()).getTime().toString();
 	if(bangumi)
 	{
-		var params_str = 'appkey=' + appkey + '&cid=' + cid + '&module=bangumi&otype=json&qn=' + quality + '&quality=' + quality + '&season_type=1&type=';
+		var params_str = 'appkey=' + appkey + '&avid' + aid + '&cid=' + cid + '&module=bangumi&otype=json&qn=' + quality + '&quality=' + quality + '&season_type=1&type=';
 		var chksum = genMD5(params_str+SEC_BANGUMI);
 		var genApiUrl = bangumi_api_url + params_str + '&sign=' + chksum;
 		
@@ -1687,7 +1687,7 @@ function biliApiRequest(cid, quality, bangumi = null, bangumi_movie = null, rd)
 	}
 	else
 	{
-		var params_str = 'appkey=' + appkey + '&cid=' + cid + '&otype=json&qn=' + quality + '&quality=' + quality + '&type=';
+		var params_str = 'appkey=' + appkey + '&avid' + aid + '&cid=' + cid + '&otype=json&qn=' + quality + '&quality=' + quality + '&type=';
 		var chksum = genMD5(params_str+SEC_NORMAL);
 		var genApiUrl = api_url + params_str + '&sign=' + chksum;
 		
