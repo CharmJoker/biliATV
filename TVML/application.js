@@ -1690,13 +1690,13 @@ function biliApiRequest(aid, cid, quality, bangumi = null, bangumi_movie = null,
 		var params_str = 'appkey=' + appkey + '&avid=' + aid + '&cid=' + cid + '&otype=json&qn=' + quality + '&quality=' + quality + '&type=';
 		var chksum = genMD5(params_str+SEC_NORMAL);
 		var genApiUrl = api_url + params_str + '&sign=' + chksum;
-		Alert(genApiUrl);
+		Alert("URL", genApiUrl);
 		console.warn(genApiUrl);
 		console.log(genApiUrl);
 		var resultData = null;
 		ajax.get(genApiUrl,function (html) {
 			resultData = JSON.parse(html);
-			rd(resultData);
+			//rd(resultData);
 		});
 	}
 }
