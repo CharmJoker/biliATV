@@ -1651,7 +1651,7 @@ function openVideoWindow(aid, detail, imageURL, page, title, desc, isBangumi = n
 		myPlayer.playlist = videoList;
 		myPlayer.addEventListener('timeBoundaryDidCross', (listener, extraInfo) => {
             console.log("bound: " + listener.boundary);
-        }, [0:00,0:30]);
+        }, [0,10000]);
         myPlayer.addEventListener('timeDidChange', function(listener,extraInfo) {
             console.log("time: " + listener.time);
         },{interval: 1});
