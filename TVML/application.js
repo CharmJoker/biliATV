@@ -1658,7 +1658,7 @@ function openVideoWindow(aid, detail, imageURL, page, title, desc, isBangumi = n
   //       myPlayer.addEventListener('stateDidChange', function(listener, extraInfo) {
   //           console.log("state: " + listener.state);
   //       },{});
-        myPlayer.addDanMu(msg="This is a test", color=0xFF0000, fontSize=25, style=0);
+        myPlayer.addDanMu(msg="This is a test", color=125, fontSize=25, style=0);
         //style 0:normal 1:top 2:bottom
         myPlayer.play();
 }
