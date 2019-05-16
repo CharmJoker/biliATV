@@ -1649,17 +1649,17 @@ function openVideoWindow(aid, detail, imageURL, page, title, desc, isBangumi = n
 		let myPlayer = new DMPlayer();
 		nowPlayer = myPlayer;
 		myPlayer.playlist = videoList;
-		// myPlayer.addEventListener('timeBoundaryDidCross', (listener, extraInfo) => {
-		//     console.log("bound: " + listener.boundary);
-		// }, {});
+		myPlayer.addEventListener('timeBoundaryDidCross', (listener, extraInfo) => {
+		    console.log("bound: " + listener.boundary);
+		}, {});
 	
-		// myPlayer.addEventListener('timeDidChange', function(listener,extraInfo) {
-		//     console.log("time: " + listener.time);
-		// },{interval: 1});
+		myPlayer.addEventListener('timeDidChange', function(listener,extraInfo) {
+		    console.log("time: " + listener.time);
+		},{interval: 1});
 		myPlayer.addEventListener('stateDidChange', function(listener, extraInfo) {
 			console.log("state: " + listener.state);
 		},{});
-		// myPlayer.addDanMu(msg="This is a test", color=0xFF0000, fontSize=25, style=0);
+		myPlayer.addDanMu(msg="This is a test", color=0xFF0000, fontSize=25, style=0);
 		myPlayer.play()	
 }
 
