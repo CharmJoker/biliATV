@@ -1667,7 +1667,7 @@ var SEC1 = '94aba54af9065f71de72f5508f1cd42e';
 var SEC_NORMAL = '1c15888dc316e05a15fdd0a02ed6584f'
 var SEC_BANGUMI = '9b288147e5474dd2aa67085f716c560d'
 var appkey = '27eb53fc9058f8c3';
-var api_url = 'http://interface.bilibili.com/v2/playurl?';
+var api_url = 'https://api.bilibili.com/x/player/playurl?';
 var bangumi_api_url = 'https://api.bilibili.com/pgc/player/web/playurl?';
 
 function biliApiRequest(cid, quality, bangumi = null, bangumi_movie = null, rd)
